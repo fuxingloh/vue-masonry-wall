@@ -1,11 +1,12 @@
 {
   "name": "vue-masonry-wall",
   "version": "0.1.0",
-  "description": "100% vue masonry without direct dom manipulation.",
+  "description": "A pure vue masonry project without direct dom manipulation and ssr friendly.",
   "keywords": [
     "vue",
     "vuejs",
-    "masonry"
+    "masonry",
+    "pinterest"
   ],
   "main": "src/app.js",
   "repository": {
@@ -15,6 +16,10 @@
   "author": "Fuxing Loh",
   "devDependencies": {
     "vue": "^2.6.11"
+  },
+  "dependencies": {
+    "lodash": "^4.17.15",
+    "vue-observe-visibility": "^0.4.6"
   },
   "license": "MIT"
 }
