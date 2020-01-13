@@ -114,7 +114,7 @@ This param allow you to preload a config for SSR rendering, it will distribute y
 
 ## Building & Publishing
 ```shell script
-yarn run build:npm
+yarn run build
 yarn publish
 ```
 

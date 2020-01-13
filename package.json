@@ -2,6 +2,7 @@
   "name": "vue-masonry-wall",
   "version": "0.2.0",
   "description": "100% vue masonry without direct dom manipulation, ssr friendly.",
+
   "author": "Fuxing Loh",
   "repository": {
     "type": "git",
@@ -16,6 +17,7 @@
   ],
   "license": "MIT",
   "private": false,
+
   "main": "dist/vue-masonry-wall.ssr.js",
   "module": "dist/vue-masonry-wall.esm.js",
   "unpkg": "dist/vue-masonry-wall.min.js",
