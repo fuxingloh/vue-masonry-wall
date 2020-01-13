@@ -4,6 +4,17 @@ I created this because [vue-masonry](https://github.com/shershen08/vue-masonry) 
 
 [Live Demo](https://nuxt-app.fuxing.dev/vue-masonry-wall)
 
+## Installation
+NPM
+```shell script
+npm i vue-masonry-wall
+```
+
+Yarn
+```shell script
+yarn add vue-masonry-wall
+```
+
 ## Features 
 - No Direct DOM Manipulation
 - SSR Support
@@ -92,22 +103,12 @@ This param allow you to preload a config for SSR rendering, it will distribute y
 </vue-masonry-wall>
 ```
 
-## Installation
-NPM
-```shell script
-npm i vue-masonry-wall
-```
-
-Yarn
-```shell script
-yarn add vue-masonry-wall
-```
-
 ## Dependencies
 - [vue-observe-visibility](https://github.com/Akryum/vue-observe-visibility) = [IntersectionObserver](https://github.com/w3c/IntersectionObserver/tree/master/polyfill)
-- [lodash](https://github.com/lodash/lodash)  
 
-## Features from my original project removed for brevity of the package
+## TODO?
+> These were features from my original project that I removed for brevity of this package. 
+
 - [nuxt-community/device-module](https://github.com/nuxt-community/device-module) to detect browser for better SSR support.
 - [vue-scrollto](https://www.npmjs.com/package/vue-scrollto) to scroll to a item in masonry.
 
