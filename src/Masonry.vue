@@ -1,6 +1,6 @@
 <template>
     <div class="masonry-wall" ref="wall" :style="_style.wall" :class="{ready}">
-        <div class="masonry-column" v-for="(lane, index) in lanes" :key="index" :style="_style.lane">
+        <div class="masonry-column" v-for="(lane, index) in columns" :key="index" :style="_style.lane">
 
             <div class="masonry-item" v-for="i in lane.indexes" :key="i" :style="_style.item" :ref="`item_${i}`">
                 <slot v-bind:item="items[i]" :index="i">{{items[i]}}</slot>
@@ -15,21 +15,25 @@
 
 <script>
   import {maxBy} from 'lodash'
+  import {ObserveVisibility} from "vue-observe-visibility";
 
   /**
    * @param count number of columns to create
    * @returns {[{i: number, indexes: []},...]}
    */
   const _newColumns = (count) => {
-    const lanes = []
+    const columns = []
     for (let i = 0; i < count; i++) {
-      lanes.push({i: i, indexes: []})
+      columns.push({i: i, indexes: []})
     }
-    return lanes
+    return columns
   }
 
   export default {
     name: "Masonry",
+    directives: {
+      'observe-visibility': ObserveVisibility
+    },
     props: {
 
       /**
@@ -60,7 +64,7 @@
       /**
        * SSR has no clue what is the size of your height of your element or width of the browser.
        * You can however guess based on user-agent: https://github.com/nuxt-community/device-module
-       * This param allow you to preload a config for SSR rendering, it will distribute your items into all lanes.
+       * This param allow you to preload a config for SSR rendering, it will distribute your items into all columns.
        *
        * Once the client is mounted, it will redraw if the config is different from SSR.
        *
@@ -96,11 +100,11 @@
       }
     },
     /**
-     * For detecting browser resize event to redraw the lanes.
+     * For detecting browser resize event to redraw the columns.
      */
     mounted() {
       this.$resize = () => {
-        if (this.lanes.length !== this._columnSize()) {
+        if (this.columns.length !== this._columnSize()) {
           this.redraw()
         }
       }
@@ -121,7 +125,7 @@
        */
       _style() {
         let padding = this.options && this.options.padding
-        if (typeof padding != 'number') {
+        if (padding && typeof padding != 'number') {
           padding = this.options.padding[this.columns.length]
             && this.options.padding.default
             && 12
@@ -167,7 +171,7 @@
       },
 
       /**
-       * Add items into masonry lanes, items are added to the shortest column first.
+       * Add items into masonry columns, items are added to the shortest column first.
        *
        * @private internal component use
        */

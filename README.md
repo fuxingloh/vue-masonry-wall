@@ -9,14 +9,14 @@ I created this because [vue-masonry](https://github.com/shershen08/vue-masonry) 
 - SSR Support
 
 ## Usage
-#### Basic 
+### Basic 
 
-#### SSR
+### SSR
 
 ## Installation
 NPM
 ```
-npm install vue-masonry-wall
+npm i vue-masonry-wall
 ```
 
 Yarn
@@ -28,9 +28,14 @@ yarn add vue-masonry-wall
 - [vue-observe-visibility](https://github.com/Akryum/vue-observe-visibility) = [IntersectionObserver](https://github.com/w3c/IntersectionObserver/tree/master/polyfill)
 - [lodash](https://github.com/lodash/lodash)  
 
-## Features from my original project for brevity of the package.
+## Features from my original project removed for brevity of the package
 - [nuxt-community/device-module](https://github.com/nuxt-community/device-module) to detect browser for better SSR support.
 - [vue-scrollto](https://www.npmjs.com/package/vue-scrollto) to scroll to a item in masonry.
 
 ## License
 MIT
+
+## Publish
+```
+
+```

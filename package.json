@@ -1,25 +1,66 @@
 {
   "name": "vue-masonry-wall",
   "version": "0.1.0",
-  "description": "A pure vue masonry project without direct dom manipulation and ssr friendly.",
+  "description": "100% vue masonry without direct dom manipulation, ssr friendly.",
+  "author": "Fuxing Loh",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fuxingloh/vue-masonry-wall.git"
+  },
+  "bugs": "https://github.com/fuxingloh/vue-masonry-wall/issues",
   "keywords": [
     "vue",
     "vuejs",
     "masonry",
     "pinterest"
   ],
-  "main": "src/app.js",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/fuxingloh/vue-masonry-wall.git"
+  "license": "MIT",
+  "private": false,
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build",
+    "build:npm": "vue-cli-service build --target lib --name vue-mansory-wall src/Masonry.vue"
   },
-  "author": "Fuxing Loh",
-  "devDependencies": {
-    "vue": "^2.6.11"
+  "main": "dist/vue-masonry-wall.umd.js",
+  "module": "dist/vue-masonry-wall.esm.js",
+  "unpkg": "dist/vue-masonry-wall.min.js",
+  "browser": {
+    "./sfc": "src/vue-masonry-wall.vue"
   },
   "dependencies": {
+    "core-js": "^3.4.4",
+    "vue": "^2.6.10",
     "lodash": "^4.17.15",
     "vue-observe-visibility": "^0.4.6"
   },
-  "license": "MIT"
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "^4.1.0",
+    "@vue/cli-plugin-eslint": "^4.1.0",
+    "@vue/cli-service": "^4.1.0",
+    "babel-eslint": "^10.0.3",
+    "eslint": "^5.16.0",
+    "eslint-plugin-vue": "^5.0.0",
+    "vue-template-compiler": "^2.6.10"
+  },
+  "eslintConfig": {
+    "root": true,
+    "env": {
+      "node": true
+    },
+    "extends": [
+      "plugin:vue/essential",
+      "eslint:recommended"
+    ],
+    "rules": {},
+    "parserOptions": {
+      "parser": "babel-eslint"
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions"
+  ]
 }
