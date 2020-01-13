@@ -10,7 +10,7 @@ I created this because [vue-masonry](https://github.com/shershen08/vue-masonry) 
 
 ## Usage
 ```vue
-<masonry :items="items" :options="options" @append="append"/>
+<vue-masonry-wall :items="items" :options="options" @append="append"/>
 ```
 
 ```js
@@ -36,23 +36,23 @@ const append = () => {
   <div id="app">
     <h2>Masonry: append endlessly</h2>
 
-    <masonry :items="items" :options="{width: 300, padding: 12}" @append="append">
+    <vue-masonry-wall :items="items" :options="{width: 300, padding: 12}" @append="append">
       <template v-slot:default="{item}">
         <div class="item">
           <h5>{{item.title}}</h5>
           <p>{{item.content}}</p>
         </div>
       </template>
-    </masonry>
+    </vue-masonry-wall>
   </div>
 </template>
 
 <script>
-  import Masonry from "vue-masonry-wall";
+  import VueMasonryWall from "vue-masonry-wall";
 
   export default {
     name: 'app',
-    components: {Masonry},
+    components: {VueMasonryWall},
     data() {
       return {
         items: [
@@ -82,24 +82,24 @@ You can however guess based on user-agent: https://github.com/nuxt-community/dev
 This param allow you to preload a config for SSR rendering, it will distribute your items into all columns evenly.
 
 ```vue
-<masonry :items="items" :options="{width: 300, padding: 12}" :ssr="{columns: 2}" @append="append">
+<vue-masonry-wall :items="items" :options="{width: 300, padding: 12}" :ssr="{columns: 2}" @append="append">
   <template v-slot:default="{item}">
     <div class="item">
       <h5>{{item.title}}</h5>
       <p>{{item.content}}</p>
     </div>
   </template>
-</masonry>
+</vue-masonry-wall>
 ```
 
 ## Installation
 NPM
-```
+```shell script
 npm i vue-masonry-wall
 ```
 
 Yarn
-```
+```shell script
 yarn add vue-masonry-wall
 ```
 
@@ -112,7 +112,7 @@ yarn add vue-masonry-wall
 - [vue-scrollto](https://www.npmjs.com/package/vue-scrollto) to scroll to a item in masonry.
 
 ## Building & Publishing
-```
+```shell script
 yarn run build:npm
 yarn publish
 ```
