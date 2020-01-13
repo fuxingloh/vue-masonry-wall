@@ -1,0 +1,20 @@
+{
+  "name": "vue-masonry-wall",
+  "version": "0.1.0",
+  "description": "100% vue masonry without direct dom manipulation.",
+  "keywords": [
+    "vue",
+    "vuejs",
+    "masonry"
+  ],
+  "main": "src/app.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fuxingloh/vue-masonry-wall.git"
+  },
+  "author": "Fuxing Loh",
+  "devDependencies": {
+    "vue": "^2.6.11"
+  },
+  "license": "MIT"
+}
