@@ -1,6 +1,6 @@
 {
   "name": "vue-masonry-wall",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "100% vue masonry without direct dom manipulation, ssr friendly.",
   "author": "Fuxing Loh",
   "repository": {
@@ -31,10 +31,10 @@
     "./sfc": "src/vue-masonry-wall.vue"
   },
   "dependencies": {
-    "core-js": "^3.4.4",
-    "lodash": "^4.17.15",
-    "vue": "^2.6.10",
     "vue-observe-visibility": "^0.4.6"
+  },
+  "peerDependencies": {
+    "lodash": "^4.17.15"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "^4.1.0",
@@ -43,6 +43,7 @@
     "babel-eslint": "^10.0.3",
     "eslint": "^5.16.0",
     "eslint-plugin-vue": "^5.0.0",
+    "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
   },
   "eslintConfig": {
