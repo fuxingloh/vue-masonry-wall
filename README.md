@@ -33,18 +33,18 @@ const append = () => {
 ### Basic
 ```vue
 <template>
-    <div id="app">
-        <h2>Masonry: append endlessly</h2>
+  <div id="app">
+    <h2>Masonry: append endlessly</h2>
 
-        <masonry :items="items" :options="{width: 300, padding: 12}" @append="append">
-            <template v-slot:default="{item}">
-                <div class="item">
-                    <h5>{{item.title}}</h5>
-                    <p class="text-ellipsis">{{item.content}}</p>
-                </div>
-            </template>
-        </masonry>
-    </div>
+    <masonry :items="items" :options="{width: 300, padding: 12}" @append="append">
+      <template v-slot:default="{item}">
+        <div class="item">
+          <h5>{{item.title}}</h5>
+          <p>{{item.content}}</p>
+        </div>
+      </template>
+    </masonry>
+  </div>
 </template>
 
 <script>
@@ -79,23 +79,17 @@ Add `:ssr="{columns: 2}"` to masonry so that during SSR, it will be load in 2 co
 
 SSR has no clue what is the size of your height of your element or width of the browser.
 You can however guess based on user-agent: https://github.com/nuxt-community/device-module
-This param allow you to preload a config for SSR rendering, it will distribute your items into all columns.
+This param allow you to preload a config for SSR rendering, it will distribute your items into all columns evenly.
 
 ```vue
-<template>
-    <div id="app">
-        <h2>Masonry: append endlessly</h2>
-
-        <masonry :items="items" :options="{width: 300, padding: 12}" :ssr="{columns: 2}" @append="append">
-            <template v-slot:default="{item}">
-                <div class="item">
-                    <h5>{{item.title}}</h5>
-                    <p class="text-ellipsis">{{item.content}}</p>
-                </div>
-            </template>
-        </masonry>
+<masonry :items="items" :options="{width: 300, padding: 12}" :ssr="{columns: 2}" @append="append">
+  <template v-slot:default="{item}">
+    <div class="item">
+      <h5>{{item.title}}</h5>
+      <p>{{item.content}}</p>
     </div>
-</template>
+  </template>
+</masonry>
 ```
 
 ## Installation

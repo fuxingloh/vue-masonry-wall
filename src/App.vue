@@ -1,16 +1,16 @@
 <template>
-    <div id="app">
-        <h2>Masonry: append endlessly</h2>
+  <div id="app">
+    <h2>Masonry: append endlessly</h2>
 
-        <Masonry :items="items" :options="options" @append="append">
-            <template v-slot:default="{item}">
-                <div class="item">
-                    <h5>{{item.title}}</h5>
-                    <p class="text-ellipsis">{{item.content}}</p>
-                </div>
-            </template>
-        </Masonry>
-    </div>
+    <Masonry :items="items" :options="options" @append="append">
+      <template v-slot:default="{item}">
+        <div class="item">
+          <h5>{{item.title}}</h5>
+          <p>{{item.content}}</p>
+        </div>
+      </template>
+    </Masonry>
+  </div>
 </template>
 
 <script>
@@ -59,47 +59,47 @@
 </script>
 
 <style>
+  #app {
+    font-family: 'Roboto', sans-serif;
+
+    max-width: 1400px;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    padding: 80px 24px;
+  }
+
+  @media (min-width: 1200px) {
     #app {
-        font-family: 'Roboto', sans-serif;
-
-        max-width: 1400px;
-
-        margin-left: auto;
-        margin-right: auto;
-
-        padding: 80px 24px;
+      padding-left: 80px;
+      padding-right: 80px;
     }
+  }
 
-    @media (min-width: 1200px) {
-        #app {
-            padding-left: 80px;
-            padding-right: 80px;
-        }
-    }
+  h2 {
+    font-size: 30px;
+    margin: 0 0 24px;
+  }
 
-    h2 {
-        font-size: 30px;
-        margin: 0 0 24px;
-    }
+  h5 {
+    font-size: 18px;
+    line-height: 1.5;
+    margin: 0 0 8px;
+  }
 
-    h5 {
-        font-size: 18px;
-        line-height: 1.5;
-        margin: 0 0 8px;
-    }
+  p {
+    font-size: 17px;
+    line-height: 1.5;
+    font-weight: 400;
+    margin: 0;
 
-    p {
-        font-size: 17px;
-        line-height: 1.5;
-        font-weight: 400;
-        margin: 0;
+    word-break: break-word;
+  }
 
-        word-break: break-word;
-    }
-
-    .item {
-        padding: 16px 24px;
-        border-radius: 3px;
-        background: #F5F5F5;
-    }
+  .item {
+    padding: 16px 24px;
+    border-radius: 3px;
+    background: #F5F5F5;
+  }
 </style>

@@ -1,16 +1,16 @@
 <template>
-    <div class="masonry-wall" ref="wall" :style="_style.wall" :class="{ready}">
-        <div class="masonry-column" v-for="(lane, index) in columns" :key="index" :style="_style.lane">
+  <div class="masonry-wall" ref="wall" :style="_style.wall" :class="{ready}">
+    <div class="masonry-column" v-for="(lane, index) in columns" :key="index" :style="_style.lane">
 
-            <div class="masonry-item" v-for="i in lane.indexes" :key="i" :style="_style.item" :ref="`item_${i}`">
-                <slot v-bind:item="items[i]" :index="i">{{items[i]}}</slot>
-            </div>
+      <div class="masonry-item" v-for="i in lane.indexes" :key="i" :style="_style.item" :ref="`item_${i}`">
+        <slot v-bind:item="items[i]" :index="i">{{items[i]}}</slot>
+      </div>
 
-            <div class="masonry-bottom" ref="bottom" :data-column="index"
-                 v-observe-visibility="{callback: (v) => v && _fill(),throttle:300}"
-            />
-        </div>
+      <div class="masonry-bottom" ref="bottom" :data-column="index"
+           v-observe-visibility="{callback: (v) => v && _fill(),throttle:300}"
+      />
     </div>
+  </div>
 </template>
 
 <script>
@@ -64,7 +64,7 @@
       /**
        * SSR has no clue what is the size of your height of your element or width of the browser.
        * You can however guess based on user-agent: https://github.com/nuxt-community/device-module
-       * This param allow you to preload a config for SSR rendering, it will distribute your items into all columns.
+       * This param allow you to preload a config for SSR rendering, it will distribute your items into all columns evenly.
        *
        * Once the client is mounted, it will redraw if the config is different from SSR.
        *
@@ -210,26 +210,26 @@
 </script>
 
 <style scoped>
-    .masonry-wall {
-        display: flex;
-    }
+  .masonry-wall {
+    display: flex;
+  }
 
-    .masonry-wall:not(.ready) {
-        opacity: 0;
-    }
+  .masonry-wall:not(.ready) {
+    opacity: 0;
+  }
 
-    .masonry-column {
-        flex-grow: 1;
-        flex-basis: 0;
+  .masonry-column {
+    flex-grow: 1;
+    flex-basis: 0;
 
-        display: flex;
-        flex-direction: column;
-    }
+    display: flex;
+    flex-direction: column;
+  }
 
-    .masonry-bottom {
-        flex-grow: 1;
-        margin-top: -300px;
-        padding-top: 300px;
-        min-height: 100px;
-    }
+  .masonry-bottom {
+    flex-grow: 1;
+    margin-top: -300px;
+    padding-top: 300px;
+    min-height: 100px;
+  }
 </style>
