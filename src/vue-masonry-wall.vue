@@ -7,7 +7,7 @@
       </div>
 
       <div class="masonry-bottom" ref="bottom" :data-column="index"
-           v-observe-visibility="{callback: (v) => v && _fill(),throttle:300}"
+           v-observe-visibility="{callback: (v) => v && _fill(),throttle:_options.throttle}"
       />
     </div>
   </div>
@@ -53,7 +53,8 @@
        *         default: 12,
        *         1: 6,
        *         2: 8,
-       *     }
+       *     },
+       *     throttle: 300
        * }
        */
       options: {
@@ -119,6 +120,23 @@
       window.removeEventListener('resize', this.$resize)
     },
     computed: {
+
+      /**
+       * Options with default override if not given
+       *
+       * @private
+       */
+      _options() {
+        const options = this.options
+        return {
+          width: options && options.width || 300,
+          padding: {
+            default: options && options.padding && options.padding.default || 12
+          },
+          throttle: options && options.throttle || 300
+        }
+      },
+
       /**
        * Style of wall, column and item for padding
        * @private
@@ -126,9 +144,7 @@
       _style() {
         let padding = this.options && this.options.padding
         if (padding && typeof padding != 'number') {
-          padding = this.options.padding[this.columns.length]
-            || this.options.padding.default
-            && 12
+          padding = this.options.padding[this.columns.length] || this._options.padding.default
         }
 
         return {
@@ -164,8 +180,7 @@
        * @private internal component use
        */
       _columnSize() {
-        const width = this.options && this.options.width || 300
-        const length = Math.round(this.$refs.wall.scrollWidth / width)
+        const length = Math.round(this.$refs.wall.scrollWidth / this._options.width)
         if (length < 1) return 1
         return length
       },
