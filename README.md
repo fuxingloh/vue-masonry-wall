@@ -2,7 +2,7 @@
 A pure vue masonry project without direct dom manipulation and ssr friendly. 
 I created this because [vue-masonry](https://github.com/shershen08/vue-masonry) has no SSR support and I needed a pure vue implementation. 
 
-[Live Demo](https://nuxt-app.fuxing.dev/vue-masonry-wall)
+[Live Demo](https://nuxt-app.now.sh/vue-masonry-wall)
 
 ## Installation
 NPM
