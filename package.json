@@ -1,6 +1,6 @@
 {
   "name": "vue-masonry-wall",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "description": "100% vue masonry without direct dom manipulation, ssr friendly.",
   "author": "Fuxing Loh",
   "repository": {
