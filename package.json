@@ -1,6 +1,6 @@
 {
   "name": "vue-masonry-wall",
-  "version": "0.2.3",
+  "version": "0.2.4",
   "description": "100% vue masonry without direct dom manipulation, ssr friendly.",
   "author": "Fuxing Loh",
   "repository": {
@@ -48,7 +48,7 @@
     "@vue/cli-plugin-babel": "^4.1.0",
     "@vue/cli-service": "^4.1.0",
     "cross-env": "^6.0.3",
-    "minimist": "^1.2.0",
+    "minimist": "^1.2.2",
     "rollup": "^1.27.13",
     "rollup-plugin-babel": "^4.3.3",
     "rollup-plugin-commonjs": "^10.1.0",
@@ -56,6 +56,10 @@
     "rollup-plugin-vue": "5.1.1",
     "vue": "^2.6.10",
     "vue-template-compiler": "^2.6.10"
+  },
+  "resolutions": {
+    "minimist": "^1.2.2",
+    "acorn@>=7.0.0 <7.1.1": "^7.1.1"
   },
   "engines": {
     "node": ">=8"
