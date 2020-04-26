@@ -19,11 +19,6 @@
   "main": "dist/vue-masonry-wall.ssr.js",
   "module": "dist/vue-masonry-wall.esm.js",
   "unpkg": "dist/vue-masonry-wall.min.js",
-  "files": [
-    "dist/*",
-    "src/**/*.vue",
-    "!src/serve-dev.*"
-  ],
   "scripts": {
     "serve": "vue-cli-service serve src/serve-dev.js",
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
