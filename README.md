@@ -1,24 +1,26 @@
 # vue-masonry-wall
-A pure vue masonry project without direct dom manipulation and ssr friendly. 
-I created this because [vue-masonry](https://github.com/shershen08/vue-masonry) has no SSR support and I needed a pure vue implementation. 
+A pure vue responsive masonry implementation without direct dom manipulation, ssr friendly with lazy appending. 
+I created this because other libraries has no SSR support, and I needed a pure vue implementation. 
 
-* [Live Demo: Image](https://nuxt-app.now.sh/vue-masonry-wall-image) and the [Source Code](https://github.com/fuxingloh/nuxt-app/blob/0725466dcf2d3d5338573ca7612f38ecd8fa2fa0/components/examples/ExampleMasonryImage.vue)
-* [Live Demo: Text](https://nuxt-app.now.sh/vue-masonry-wall) and the [Source Code](https://github.com/fuxingloh/nuxt-app/blob/0725466dcf2d3d5338573ca7612f38ecd8fa2fa0/components/examples/ExampleMasonry.vue)
+* [Live Demo: Image](https://nuxt-app.now.sh/vue-masonry-wall-image) and the [Source](https://github.com/fuxingloh/nuxt-app/blob/0725466dcf2d3d5338573ca7612f38ecd8fa2fa0/components/examples/ExampleMasonryImage.vue)
+* [Live Demo: Text](https://nuxt-app.now.sh/vue-masonry-wall) and the [Source](https://github.com/fuxingloh/nuxt-app/blob/0725466dcf2d3d5338573ca7612f38ecd8fa2fa0/components/examples/ExampleMasonry.vue)
+
+[![vue-masonry-wall screenshot](example.png)](https://nuxt-app.now.sh/vue-masonry-wall-image)
 
 ## Installation
-NPM
 ```shell script
 npm i vue-masonry-wall
-```
-
-Yarn
-```shell script
+# or yarn
 yarn add vue-masonry-wall
 ```
 
 ## Features 
-- No Direct DOM Manipulation
-- SSR Support
+* No Direct DOM Manipulation
+* SSR friendly, able to load and re hydrate later
+* 1 dependency only, no legacy dependencies
+* Auto lazy appending, scroll to auto load more
+* Auto item placement, will find best column 
+* Responsive design
 
 ## Usage
 ```vue
@@ -105,19 +107,10 @@ This param allow you to preload a config for SSR rendering, it will distribute y
 ```
 
 ## Dependencies
-- [vue-observe-visibility](https://github.com/Akryum/vue-observe-visibility) = [IntersectionObserver](https://github.com/w3c/IntersectionObserver/tree/master/polyfill)
+- [vue-observe-visibility](https://github.com/Akryum/vue-observe-visibility) for [IntersectionObserver](https://github.com/w3c/IntersectionObserver/tree/master/polyfill)
 
-## TODO?
+## TODO
 > These were features from my original project that I removed for brevity of this package. 
 
-- [nuxt-community/device-module](https://github.com/nuxt-community/device-module) to detect browser for better SSR support.
-- [vue-scrollto](https://www.npmjs.com/package/vue-scrollto) to scroll to a item in masonry.
-
-## Building & Publishing
-```shell script
-yarn run build
-yarn publish
-```
-
-## License
-MIT
+* [ ] [nuxt-community/device-module](https://github.com/nuxt-community/device-module) to detect the browser for better SSR support.
+* [ ] [vue-scrollto](https://www.npmjs.com/package/vue-scrollto) to scroll to an item in masonry.
