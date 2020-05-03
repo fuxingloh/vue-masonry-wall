@@ -109,6 +109,9 @@ This param allow you to preload a config for SSR rendering, it will distribute y
 ## Dependencies
 - [vue-observe-visibility](https://github.com/Akryum/vue-observe-visibility) for [IntersectionObserver](https://github.com/w3c/IntersectionObserver/tree/master/polyfill)
 
+## Contributing
+For any question or feature request please feel free to create an [issue](https://github.com/fuxingloh/vue-masonry-wall/issues/new) or [pull request](https://github.com/fuxingloh/vue-masonry-wall/pulls).
+
 ## TODO
 > These were features from my original project that I removed for brevity of this package. 
 
