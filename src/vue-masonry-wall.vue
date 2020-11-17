@@ -169,6 +169,7 @@
       redraw() {
         this.ready = false
         this.columns.splice(0)
+        this.cursor = 0
         this.columns.push(..._newColumns(this._columnSize()))
         this.ready = true
         this._fill()
