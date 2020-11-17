@@ -1,0 +1,7 @@
+addAssignees: author
+addReviewers: true
+
+reviewers:
+  - fuxingloh
+
+numberOfReviewers: 0
