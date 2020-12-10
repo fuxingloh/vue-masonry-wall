@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <h2>Masonry: append endlessly</h2>
+    <h2>Masonry: append 100</h2>
 
     <vue-masonry-wall :items="items" :options="options" @append="append">
       <template v-slot:default="{item}">
@@ -57,6 +57,10 @@ export default Vue.extend({
      * I am mocking a API call that load 20 objects at a time.
      */
     append() {
+      if (this.items.length > 100) {
+        return
+      }
+
       for (let i = 0; i < 20; i++) {
         this.items.push({title: `Item ${this.items.length}`, content: content()})
       }
