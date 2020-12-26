@@ -117,3 +117,12 @@ For any question or feature request please feel free to create an [issue](https:
 
 * [ ] [nuxt-community/device-module](https://github.com/nuxt-community/device-module) to detect the browser for better SSR support.
 * [ ] [vue-scrollto](https://www.npmjs.com/package/vue-scrollto) to scroll to an item in masonry.
+
+## [Vue Horizontal](https://github.com/fuxingloh/vue-horizontal)
+
+I also maintain another project called [Vue Horizontal](https://github.com/fuxingloh/vue-horizontal).
+
+At its core, Vue Horizontal is an ultra simple pure vue horizontal layout for
+modern responsive web with zero dependencies.
+Vue Horizontal is also an ultra complex code snippet dossier with over 100 SPA/SSR/SSG friendly recipes for your design needs.
+Do check it out, might be useful for you!
