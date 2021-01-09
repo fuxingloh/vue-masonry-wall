@@ -1,15 +1,12 @@
-name-template: 'v$RESOLVED_VERSION 🌈'
+name-template: 'v$RESOLVED_VERSION'
 tag-template: 'v$RESOLVED_VERSION'
 categories:
   - title: '🚀 Features'
     labels:
-      - 'feature'
-      - 'enhancement'
+      - 'feat'
   - title: '🐛 Bug Fixes'
     labels:
       - 'fix'
-      - 'bugfix'
-      - 'bug'
   - title: '🧰 Maintenance'
     labels:
       - 'chore'
@@ -19,16 +16,12 @@ change-title-escapes: '\<*_&'
 version-resolver:
   minor:
     labels:
-      - 'feature'
-      - 'enhancement'
+      - 'feat'
   patch:
     labels:
-      - 'patch'
-      - 'bug'
-      - 'bugfix'
+      - 'docs'
+      - 'chore'
       - 'fix'
   default: patch
 template: |
-  ## Changes
-
   $CHANGES

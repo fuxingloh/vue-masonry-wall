@@ -1,0 +1,24 @@
+name: Triage
+
+on:
+  pull_request:
+    types: [ opened, reopened, edited, synchronize, ready_for_review ]
+    branches: [ main ]
+
+jobs:
+  main:
+    name: Triage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: kentaro-m/auto-assign-action@v1.1.2
+
+      - uses: amannn/action-semantic-pull-request@v2.1.0
+        name: Semantic Pull Request
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          types: fix, feat, docs, chore
+
+      - uses: srvaroa/labeler@v0.6
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

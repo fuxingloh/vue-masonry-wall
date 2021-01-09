@@ -1,11 +1,29 @@
 name: CI
 
 on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'src/**'
+      - 'dev/**'
+      - 'build/**'
+      - '*.json'
+      - '*.js'
+      - '*.ts'
+
   pull_request:
-    branches: [ master ]
+    types: [ opened, reopened, synchronize, ready_for_review ]
+    branches: [ main ]
+    paths:
+      - 'src/**'
+      - 'dev/**'
+      - 'build/**'
+      - '*.json'
+      - '*.js'
+      - '*.ts'
 
 jobs:
-  yarn:
+  build:
     name: Build
     runs-on: ubuntu-latest
     steps:
@@ -14,7 +32,41 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
-          registry-url: 'https://registry.npmjs.org'
 
-      - run: yarn install --frozen-lockfile
-      - run: yarn build
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-
+
+      - run: npm ci
+
+      - run: npm run build
+
+      - uses: andresz1/size-limit-action@v1
+        if: github.event_name == 'pull_request'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          skip_step: install
+
+  lint:
+    name: Lint
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
+
+      - uses: actions/cache@v2
+        with:
+          path: ~/.npm
+          key: npm-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            npm-
+
+      - run: npm ci
+
+      - run: npm run lint

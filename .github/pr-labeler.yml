@@ -1,3 +1,0 @@
-feature: [ 'feature/*', 'feat/*', 'enhancement/*' ]
-fix: [ 'fix/*', 'bug/*', 'bugfix/*' ]
-chore: [ 'chore/*', 'docs/*' , 'doc/*', 'ci/*' ]

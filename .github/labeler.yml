@@ -1,0 +1,17 @@
+version: 1
+labels:
+  - label: "WIP"
+    title: "^WIP:.*"
+    mergeable: false
+
+  - label: "feat"
+    title: "^feat:.*"
+
+  - label: "fix"
+    title: "^fix:.*"
+
+  - label: "chore"
+    title: "^chore:.*"
+
+  - label: "docs"
+    title: "^docs:.*"

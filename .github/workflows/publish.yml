@@ -5,24 +5,28 @@ on:
     types: [ published ]
 
 jobs:
-  build:
+  npm:
+    name: NPM
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-        with:
-          node-version: '14'
-          registry-url: 'https://registry.npmjs.org'
-
-      - run: yarn install --frozen-lockfile
 
       - name: Check package version
         uses: technote-space/package-version-check-action@v1
         with:
-          COMMIT_MESSAGE: 'release: update package version'
+          COMMIT_DISABLED: 1
 
-      - run: yarn build
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '14'
 
-      - run: yarn publish --non-interactive
+      - run: npm ci
+
+      - run: npm run build
+
+      - name: Publish
+        run: |
+          npm config set //registry.npmjs.org/:_authToken=$NPM_AUTH_TOKEN
+          npm publish
         env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
