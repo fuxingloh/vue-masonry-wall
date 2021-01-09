@@ -19,3 +19,9 @@ yarn-error.log*
 *.njsproj
 *.sln
 *.sw?
+
+gh-pages
+cypress/videos/
+cypress/screenshots/
+cypress/snapshots/All Integration Specs/
+cypress/fixtures/
