@@ -15,3 +15,6 @@ labels:
 
   - label: "docs"
     title: "^docs:.*"
+
+  - label: "chore"
+    title: "^[ImgBot] .*"
