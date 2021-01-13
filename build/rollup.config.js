@@ -1,19 +1,11 @@
-// rollup.config.js
-import fs from 'fs';
 import path from 'path';
 import vue from 'rollup-plugin-vue';
 import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
 import replace from '@rollup/plugin-replace';
 import babel from 'rollup-plugin-babel';
-import { terser } from 'rollup-plugin-terser';
+import {terser} from 'rollup-plugin-terser';
 import minimist from 'minimist';
-
-// Get browserslist config and remove ie from es build targets
-const esbrowserslist = fs.readFileSync('.browserslistrc')
-  .toString()
-  .split('\n')
-  .filter((entry) => entry && entry.substring(0, 2) !== 'ie');
 
 const argv = minimist(process.argv.slice(2));
 
@@ -86,9 +78,6 @@ if (!argv.format || argv.format === 'es') {
         presets: [
           [
             '@babel/preset-env',
-            {
-              targets: esbrowserslist,
-            },
           ],
         ],
       }),
@@ -155,5 +144,4 @@ if (!argv.format || argv.format === 'iife') {
   buildFormats.push(unpkgConfig);
 }
 
-// Export config
 export default buildFormats;
