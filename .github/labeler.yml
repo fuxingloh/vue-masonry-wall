@@ -1,20 +1,31 @@
-version: 1
-labels:
-  - label: "WIP"
-    title: "^WIP:.*"
-    mergeable: false
+version: v1
 
+labels:
   - label: "feat"
-    title: "^feat:.*"
+    matcher:
+      title: "^feat:.*"
 
   - label: "fix"
-    title: "^fix:.*"
+    matcher:
+      title: "^fix:.*"
 
   - label: "chore"
-    title: "^chore:.*"
+    matcher:
+      title: "^chore:.*"
 
   - label: "docs"
-    title: "^docs:.*"
+    matcher:
+      title: "^docs:.*"
 
-  - label: "chore"
-    title: "^[ImgBot] .*"
+checks:
+  - context: "Release Drafter"
+    url: "https://github.com/fuxingloh/vue-horizontal/blob/main/.github/labeler.yml"
+    description:
+      success: Ready for review & merge.
+      failure: Missing semantic label for release drafting.
+    labels:
+      any:
+        - feat
+        - fix
+        - chore
+        - docs

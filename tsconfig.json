@@ -15,6 +15,7 @@
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
+      "cypress",
       "node",
       "vue"
     ],
@@ -25,11 +26,14 @@
     },
     "lib": [
       "esnext",
-      "dom",
-      "dom.iterable",
-      "scripthost"
+      "dom"
     ]
   },
+  "include": [
+    "src/**/*.ts",
+    "dev/**/*.ts",
+    "dev/**/*.vue"
+  ],
   "exclude": [
     "node_modules",
     "dist",

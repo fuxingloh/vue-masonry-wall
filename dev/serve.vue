@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <router-link to="/">
-      <h1>Vue Horizontal</h1>
+      <h1>Vue Masonry Wall</h1>
     </router-link>
 
     <router-view></router-view>
@@ -68,9 +68,7 @@ a:hover > * {
 #app > div {
   margin: 48px 0;
 }
-</style>
 
-<style>
 .vue-masonry-wall {
   margin-bottom: 24px;
 }

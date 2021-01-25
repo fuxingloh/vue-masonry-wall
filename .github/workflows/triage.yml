@@ -1,0 +1,14 @@
+name: Triage
+
+on:
+  pull_request:
+    types: [ opened, reopened, edited, synchronize, ready_for_review ]
+    branches: [ main, next ]
+
+jobs:
+  main:
+    name: Triage
+    runs-on: ubuntu-latest
+    steps:
+      - uses: fuxingloh/multi-labeler@v1
+      - uses: kentaro-m/auto-assign-action@v1.1.2

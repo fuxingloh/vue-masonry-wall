@@ -33,13 +33,6 @@ jobs:
         with:
           node-version: '14'
 
-      - uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: npm-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            npm-
-
       - run: npm ci
 
       - run: npm run build
@@ -59,13 +52,6 @@ jobs:
       - uses: actions/setup-node@v1
         with:
           node-version: '14'
-
-      - uses: actions/cache@v2
-        with:
-          path: ~/.npm
-          key: npm-${{ hashFiles('**/package-lock.json') }}
-          restore-keys: |
-            npm-
 
       - run: npm ci
 

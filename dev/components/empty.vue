@@ -10,7 +10,7 @@
 
 <script lang="ts">
 import Vue from 'vue';
-import VueMasonryWall from '@/vue-masonry-wall.vue';
+import VueMasonryWall from '@/VueMasonryWall.ts';
 
 export default Vue.extend({
   components: {

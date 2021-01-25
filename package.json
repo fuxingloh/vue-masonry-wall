@@ -18,10 +18,16 @@
   ],
   "license": "MIT",
   "private": false,
-  "main": "dist/vue-masonry-wall.ssr.js",
-  "browser": "dist/vue-masonry-wall.esm.js",
-  "module": "dist/vue-masonry-wall.esm.js",
-  "unpkg": "dist/vue-masonry-wall.min.js",
+  "main": "./dist/vue-masonry-wall.ssr.js",
+  "browser": "./dist/vue-masonry-wall.esm.js",
+  "module": "./dist/vue-masonry-wall.esm.js",
+  "unpkg": "./dist/vue-masonry-wall.min.js",
+  "exports": {
+    ".": {
+      "import": "./dist/vue-masonry-wall.esm.js",
+      "require": "./dist/vue-masonry-wall.ssr.js"
+    }
+  },
   "types": "vue-masonry-wall.d.ts",
   "files": [
     "dist/*",
@@ -30,73 +36,78 @@
   ],
   "size-limit": [
     {
-      "path": "dist/vue-masonry-wall.esm.js"
+      "path": "./dist/vue-masonry-wall.esm.js"
     },
     {
-      "path": "dist/vue-masonry-wall.min.js"
+      "path": "./dist/vue-masonry-wall.min.js"
     },
     {
-      "path": "dist/vue-masonry-wall.ssr.js"
+      "path": "./dist/vue-masonry-wall.ssr.js"
     }
   ],
   "scripts": {
-    "serve": "vue-cli-service serve dev/serve.ts",
+    "dev": "vue-cli-service serve dev/serve.ts",
     "size": "size-limit",
     "build": "cross-env NODE_ENV=production rollup --config build/rollup.config.js",
     "build:ssr": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format cjs",
     "build:es": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format es",
     "build:unpkg": "cross-env NODE_ENV=production rollup --config build/rollup.config.js --format iife",
+    "cypress:open": "cypress open",
+    "cypress:run": "cypress run",
     "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
     "lint": "npm run lint:js && npm run lint:style"
   },
   "dependencies": {},
   "devDependencies": {
+    "@size-limit/preset-small-lib": "^4.9.1",
+    "@types/cypress-image-snapshot": "^3.1.4",
+    "@types/node": "^14.14.22",
     "@babel/core": "^7.9.0",
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-typescript": "^7.9.0",
     "@rollup/plugin-alias": "^2.2.0",
     "@rollup/plugin-commonjs": "^11.1.0",
     "@rollup/plugin-replace": "^2.3.2",
-    "@size-limit/preset-small-lib": "^4.9.1",
     "@types/lodash": "^4.14.165",
-    "@typescript-eslint/eslint-plugin": "^4.9.1",
-    "@typescript-eslint/parser": "^4.9.1",
+    "@typescript-eslint/eslint-plugin": "^4.14.0",
+    "@typescript-eslint/parser": "^4.14.0",
     "@vue/cli-plugin-babel": "^4.3.1",
     "@vue/cli-plugin-typescript": "^4.3.1",
     "@vue/cli-service": "^4.3.1",
     "@vue/eslint-config-typescript": "^7.0.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "cross-env": "^7.0.2",
-    "cypress": "^6.2.0",
-    "cypress-image-snapshot": "^4.0.0",
+    "cypress": "^6.3.0",
+    "cypress-image-snapshot": "^4.0.1",
     "eslint": "^7.15.0",
     "eslint-plugin-vue": "^7.2.0",
     "lodash": "^4.17.20",
-    "lorem-ipsum": "^2.0.3",
     "minimist": "^1.2.5",
-    "random-seed": "^0.3.0",
+    "lorem-ipsum": "^2.0.3",
+    "rand-seed": "^1.0.0",
     "rollup": "^2.7.3",
     "rollup-plugin-babel": "^4.4.0",
     "rollup-plugin-terser": "^5.3.0",
     "rollup-plugin-vue": "^5.1.6",
     "size-limit": "^4.9.1",
-    "stylelint": "^13.8.0",
+    "stylelint": "^13.9.0",
     "stylelint-config-standard": "^20.0.0",
-    "typescript": "^3.8.3",
+    "typescript": "^4.1.3",
     "vue": "^2.6.11",
     "vue-router": "^3.4.9",
-    "vue-template-compiler": "^2.6.11",
-    "vuex": "^3.6.0"
+    "vue-template-compiler": "^2.6.11"
   },
   "peerDependencies": {
     "vue": "^2.6.11"
   },
-  "engines": {
-    "node": ">=10"
-  },
-  "browserslist": [
-    "current node",
-    "> 1%"
-  ]
+  "browserslist": {
+    "development": [
+      "last 3 version"
+    ],
+    "production": [
+      "current node",
+      "> 1%"
+    ]
+  }
 }

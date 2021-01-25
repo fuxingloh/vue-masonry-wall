@@ -1,7 +1,7 @@
 import _Vue, { PluginFunction, VueConstructor } from 'vue';
 
 // Import vue component
-import component from '@/vue-masonry-wall.vue';
+import component from '@/VueMasonryWall.ts';
 
 // Define typescript interfaces for autoinstaller
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
