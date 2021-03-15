@@ -111,6 +111,10 @@
       }
 
       this.$resize()
+    
+      // set opacity to 1 when ssr.columns is recieved and  this.columns.length === this._columnSize() so redraw does not get called for the first time.
+      if(!this.ready) this.ready = true;
+      
       window.addEventListener('resize', this.$resize)
     },
     /**
